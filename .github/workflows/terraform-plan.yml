@@ -15,6 +15,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v3
+    - name: Set Date
+      run: aws sts get-caller-identity
     - name: Terraform Init
       run: terraform init -backend-config="access_key=secrets.$AWS_SECRET_KEY_ID" -backend-config="secret_key=$AWS_SECRET_ACCESS_KEY"
     - name: Terraform Validate
