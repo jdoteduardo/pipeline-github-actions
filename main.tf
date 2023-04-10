@@ -11,12 +11,12 @@ terraform {
   backend "s3" {
     bucket = "jdoteduardo-remote-state"
     key    = "pipeline-github-actions/terraform.tfstate"
-    region = "sa-east-1"
+    region = "us-east-1"
   }
 }
 
 provider "aws" {
-  region = "sa-east-1"
+  region = "us-east-1"
 
   default_tags {
     tags = {
@@ -31,6 +31,6 @@ data "terraform_remote_state" "vpc" {
   config = {
     bucket = "jdoteduardo-remote-state"
     key    = "aws-vpc/terraform.tfstate"
-    region = "sa-east-1"
+    region = "us-east-1"
   }
 }
